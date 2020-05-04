@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />     
+        <style>
+            .main.container{
+                border: solid black;
+                padding: 50px;
+                font-weight: bold;
+                color: blue;
+            }
+            .header.item {
+                border: solid black;
+                text-align: center;
+                padding: 20px;
+                font-weight: bold;
+                color: rgb(47, 47, 65);
+                background-color: rgb(134, 132, 130);
+            }
+        </style>
+        <title>Premiers tests du vuejs</title>
+    </head>
+
+    <body>
+        <div class="ui inverted fixed menu">
+            <div class="header item">Tutoriel</div>
+        </div>
+        <div class="ui main container" id ="app">
+            <p>
+                Prénom : {{firstname}}<br>
+                Nom : {{ lastname}} <br>
+                Nom complet :<input type="text" v-model = "fullName">
+            </p>
+
+            <!-- <input type="checkbox" v-model = "success">
+            <input type="text" v-model = "message">
+            {{ message }}
+            <div class="ui message":class="cls">
+                Salut les gens
+            </div> -->
+        </div>
+        <!-- </div>
+        <div class="ui main container" id="app">
+            {{seconds}} 
+             <button rsons@click="addPerson">Ajouter une personne</button>
+            <input type="text" v-model="message"><br>
+            <input type="checkbox" v-model="success"><br>        
+          <a v-bind:href="link">c'est un lien</a>
+          <ul>
+              <li v-for="person in persons">{{person}} </li>
+          </ul> 
+          <div class="ui success message" v-if="success">
+            <i class="close icon" v-on:click="close"></i>
+            <p>Bravo l'enregistrement ça marche</p>
+            <input type="checkbox" v-model="success"><br>
+            <p>{{message}} </p>
+          </div> 
+        </div>-->
+        
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+       <script src="vuejs.js"></script>
+    </body>
+</html>
