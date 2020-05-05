@@ -167,10 +167,15 @@ let message ={
 
 		},
 	template: `<div class="ui message" :class="type">
-	<i class="close icon"></i>
+	<i class="close icon"@click="close"></i>
 	<div class="header">{{ header }}</div>
 	{{message}}
-	</div>`
+	</div>`,
+	methods:{
+		close(){
+			console.log(this.$parent)
+		}
+	}
 }
 let counter ={
 	data: function(){
@@ -197,17 +202,51 @@ let counter ={
 		// 	<button @click="increment">Incrémenter</button>
 		// 	</div>`
  }
+ let formUser ={
+	 props:{
+		value:Object
+	 },
+	 data() {
+		return{
+			user:JSON.parse(JSON.stringify(this.value))
+		}
+	 },
+	 methods:{
+		 save(){
+			 this.$emit('input',this.user)
+		 }
+	 },
+	 template:`
+	 <form class="ui form" @submit.prevent="save">
+	 <div class="field">
+	 <label for="">Prénom</label>
+	 <input type="text" v-model="user.firstname">
+	 </div>
+	 <div class="field">
+	 <label for="">Nom</label>
+	 <input type="text" v-model="user.lastname">
+	 </div>
+	 <button class="ui button" type="submit">Envoyer</button>
+	 </form>`
+	 ,
+ }
 let vm = new Vue({
 	el:"#app",
-	components: {message, counter},
+	components: {message, counter,formUser},
 	data:{
-	 message: ' ',
-	 alert: false
+	 message: 'salam 3alaykoum ',
+	 alert: false,
+	 user :{
+		 firstname: 'pilou',
+		 lastname: 'momo'
+	 }
 	},
 	methods:{
 		showAlert(){
 			this.alert = true
+		},
+		hideAlert(){
+			this.alert = false
 		}
 	}
 })
-vm.message = 'salam 3alaykoum'

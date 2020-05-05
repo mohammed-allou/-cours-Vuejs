@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />     
+        <meta charset="utf-8">
+             
         <style>
             .main.container{
                 border: solid black;
@@ -26,8 +27,13 @@
             <div class="header item">Tutoriel</div>
         </div>
         <div class="ui main container" id ="app">
+            <form-user v-model="user"></form-user>
+            <pre>
+                {{ user}}
+            </pre>
+            <p>      </p>
             <message type="error":message="message" header="Attention"v-if="alert"></message>
-            <button @click="showAlert">Alerter</button>
+            <button @click="showAlert" v-if="!alert">Alerter</button>
             <counter></counter>
             <counter :start="3"></counter>
 
